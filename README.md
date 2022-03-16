@@ -1,7 +1,7 @@
 # RESLA
 RC car learning project
 
-<img src="resla.jpeg" width=50% height=33%)>
+<img src="resla.jpg" width=50% height=33%)>
 
 RESLA is a learning project combining various courses and prior knowledge learned in the first semester of a Machine learning and Data engineering programme in the Lapland University of Applied Sciences (Lapland UAS, Lapin AMK).
 
