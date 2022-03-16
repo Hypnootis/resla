@@ -1,2 +1,2 @@
-# resla
+# RESLA
 RC car learning project
