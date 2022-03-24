@@ -12,11 +12,14 @@ BluetoothSerial SerialBT;
 
 // MOVEMENT
 // b = forward
+// a = stop!!!
+// c = fast backward
+// f = slow backward
 
 Servo servo_motor;
 Servo esc_motor;
 
-int values = 90;
+// int values = 90;
 
 void setup() {
  // Open serial communications and wait for port to open:
@@ -43,36 +46,66 @@ void loop() {
  int value = SerialBT.read();
  SerialBT.println(value);
 
- if ( value == 115 )
+ if ( value == 115 )  // s
  {
  servo_motor.write(90);
  }
- if ( value == 108 )
+ 
+ if ( value == 108 )  // l
  {
  // Vasen
  servo_motor.write(30);
  }
- if ( value == 100 )
+ 
+ if ( value == 100 )  // d
  {
  servo_motor.write(130);
  }
- if ( value == 102 )
+ 
+ if ( value == 102 )  // f
  {
  // Neutral!
  esc_motor.write(90);
  delay( 10 );
  esc_motor.write(85);
  // Neutral!
+ /*
  delay( 1500 );
  esc_motor.write(90);
-
+ */
  }
+
+ if (value == 97) // a
+ {
+  delay(50);
+  esc_motor.write(90);
+ }
+
+ if (value == 99) // c
+ {
+  delay(50);
+  esc_motor.write(90);
+  
+  delay(50);
+  esc_motor.write(80);
+ }
+
+ if (value == 101)
+ {
+  delay(50);
+  esc_motor.write(90);
+  
+  delay(50);
+  esc_motor.write(95);
+ }
+ 
  if ( value == 98 ) // b
  {
 
  // Tommy's version
  
  // Neutral!
+ /*
  delay( 50 );
  esc_motor.write(90);
 
@@ -80,7 +113,8 @@ void loop() {
  // Kytke reverse
  delay( 50 );
  esc_motor.write(80);
-
+ */
+ 
  // Neutral!
  delay( 50 );
  esc_motor.write(90);
@@ -89,9 +123,10 @@ void loop() {
  delay( 50 );
  esc_motor.write(100);
  // Neutral!
+ /*
  delay( 1500 );
  esc_motor.write(90);
-
+ */
  }
  }
 
