@@ -10,7 +10,7 @@ Technologies used:
 <ul>
   <h3><u>Web stack</u></h3>
   <li>HTML/CSS</li>
-  <li>Nginx</li>
+  <li>Flask</li>
   <li>MongoDB</li>
   <li>Javascript</li>
   <br>
