@@ -18,6 +18,7 @@ void setup() {
 
 void loop() {
 	if (Serial.available()){
+	Serial.write("hello")
 	int value = Serial.read();
 	Serial.write(value);
 
