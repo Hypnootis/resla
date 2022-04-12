@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 
-servoPin = 21
+servoPin = 20
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(servoPin, GPIO.OUT)
 
@@ -62,11 +62,11 @@ def test_wheels():
 while True:
     p.start(0)
     value = input(">")[0]
-    if value == "e": # Straighten
+    if value == "q": # Stop
         reset_wheels()
-    if value == "d": # Turn right
+    if value == "w": # Forward
         turn_right()
-    if value == "a": # Turn left
+    if value == "s": # Backwards
         turn_left()
     if value == "x":
         break
