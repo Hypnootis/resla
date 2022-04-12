@@ -7,9 +7,10 @@ app = Flask(__name__, template_folder="static")
 def index():
     return render_template("index.html")
 
-@app.route("/control_servo", methods=["POST"])
+@app.route("/control_servo", methods=["GET", "POST"])
 def control_servo():
-    test_servo.move_wheels()
+    if request.method == "POST":
+        test_servo.move_wheels()
     return render_template("index.html")
 
 if __name__ == "__main__":
