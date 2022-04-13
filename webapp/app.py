@@ -71,18 +71,21 @@ def execute():
 
 @app.route('/<cmd>')
 def command(cmd=None):
-    if cmd == RESET:
+    camera_command = cmd[0].upper()
+    camera_command = cmd
+    response = ""
+    if camera_command == RESET:
         camera_command = "X"
         response = "Resetting ..."
         reset_wheels()
-    else:
-        camera_command = cmd[0].upper()
-        camera_command = cmd
-        response = "Moving {}".format(cmd.capitalize())
+    #else:
+    #    camera_command = cmd[0].upper()
+    #    camera_command = cmd
+    #    response = "Moving {}".format(cmd.capitalize())
     #if camera_command == RESET:
     #    reset_wheels()
     #    response = "Moving {}".format(cmd.capitalize())
-    if camera_command == LEFT:
+    elif camera_command == LEFT:
         turn_left()
         response = "Moving {}".format(cmd.capitalize())
     elif camera_command == RIGHT:
