@@ -40,13 +40,14 @@ def reset_wheels():
 
 
 app = Flask(__name__, template_folder="templates")
-LEFT, RIGHT, UP, DOWN, RESET = "left", "right", 'up', 'down', 'reset'
+LEFT, RIGHT, FORWARD, BACKWARD, RESET, STOP = "left", "right", 'forward', 'backward', 'reset', "stop"
 AVAILABLE_COMMANDS = {
     "Left": LEFT,
     "Right": RIGHT,
-    "Up": UP,
-    "Down": DOWN,
-    "Reset": RESET
+    "Forward": FORWARD,
+    "Backward": BACKWARD,
+    "Reset": RESET,
+    "Stop": STOP
 }
 
 
