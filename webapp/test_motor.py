@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 
-servoPin = 20
+servoPin = 12
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(servoPin, GPIO.OUT)
 
@@ -53,12 +53,16 @@ def test_wheels():
     p.start(0)
     reset_wheels()
     try:
-        p.ChangeDutyCycle(12.5)
-        print("Duty cycle is now: 12.5")
-        time.sleep(2.5)
+        for dc in range(100):
+            p.ChangeDutyCycle(dc)
+            time.sleep(0.5)
+    except KeyboardInterrupt:
+        print("Controls interrupted")
+        p.stop()
+        GPIO.cleanup()
     except:
-        print("Whoops, something wrong with controls")
-
+        print("Whoops, something wrong with the controls!")
+"""
 while True:
     p.start(0)
     value = input(">")[0]
@@ -70,6 +74,8 @@ while True:
         turn_left()
     if value == "x":
         break
+"""
 
+test_wheels()
 p.stop()
 GPIO.cleanup()
