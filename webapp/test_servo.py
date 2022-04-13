@@ -59,17 +59,6 @@ def test_wheels():
     except:
         print("Whoops, something wrong with controls")
 
-while True:
-    p.start(0)
-    value = input(">")[0]
-    if value == "e": # Straighten
-        reset_wheels()
-    if value == "d": # Turn right
-        turn_right()
-    if value == "a": # Turn left
-        turn_left()
-    if value == "x":
-        break
 
 p.stop()
 GPIO.cleanup()
