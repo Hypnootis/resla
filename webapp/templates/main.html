@@ -23,9 +23,8 @@
                   var clickedButton = e.target
                   var command = clickedButton.value;
                   var request = new XMLHttpRequest();
-                  request.onload = function () {
-                      {#alert(request.responseText);#}
-                  };
+                 
+                     
                   request.open("GET", "/" + command, true);
                   request.send();
               })
