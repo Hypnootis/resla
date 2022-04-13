@@ -16,11 +16,11 @@ void setup() {
 
 void loop() {
 	if (Serial.available()){
-	Serial.write("hello")
+	Serial.write("hello");
 	int value = Serial.read();
-	Serial.write(value);
 
 	if (value == 98){
+		serial.write("Fuck you");
 		delay(50);
 		servo_motor.write(90);
 		delay(50);
