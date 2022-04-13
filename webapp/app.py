@@ -32,6 +32,7 @@ def turn_left():
 def reset_wheels():
     p.start(0)
     try:
+        # 7.5
         p.ChangeDutyCycle(7.5)
         print("Straightening wheels")
         time.sleep(1.5)
@@ -75,9 +76,8 @@ def command(cmd=None):
     camera_command = cmd
     response = ""
     if camera_command == RESET:
-        camera_command = "X"
-        response = "Resetting ..."
         reset_wheels()
+        response = "Moving {}".format(cmd.capitalize())
     #else:
     #    camera_command = cmd[0].upper()
     #    camera_command = cmd

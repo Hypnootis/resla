@@ -1,7 +1,6 @@
 #include "ESP32Servo.h"
 
 Servo servo_motor;
-Servo esc_motor;
 
 /*
 	d = left
@@ -12,7 +11,6 @@ Servo esc_motor;
 void setup() {
 	Serial.begin(115200);
 	servo_motor.attach(4);
-	esc_motor.attach(5);
 	Serial.println("Serial connection established");
 }
 
@@ -22,7 +20,10 @@ void loop() {
 	int value = Serial.read();
 	Serial.write(value);
 
-	if (value == 115){
+	if (value == 98){
+		delay(50);
+		servo_motor.write(90);
+		delay(50);
 		servo_motor.write(90);
 		}
 
