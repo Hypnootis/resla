@@ -3,11 +3,12 @@
 String nom = "ESP32";
 String msg;
 Servo steering;
-
+Servo motor;
 
 void setup() {
-	Serial.begin(115200);
+	Serial.begin(921600);
 	steering.attach(4);
+	motor.attach(5);
 }
 
 void loop() {
@@ -17,24 +18,34 @@ void loop() {
 		if (msg == "left"){
 			steering.write(130);
 		}
-		else if (msg == "right"){
+
+		if (msg == "right"){
 		
 			steering.write(30);
 		}
-		else if (msg == "straight"){
+
+		if (msg == "straight"){
 			steering.write(90);
 		}
+
+		if (msg == "forward"){
+			motor.write(90);
+			delay(50);
+			motor.write(95);
+		}
+
+		if (msg == "backward"){
+		motor.write(90);
+		delay(50);
+		motor.write(85);
+		}
+
+		if (msg == "stop"){
+		motor.write(90);
+		}
+
 	sendData();
 	}
-	/*
-	if (Serial.available()){
-		delay(10);
-		while (Serial.available() > 0){
-			
-	}
-	}
-*/
-	 delay(500);
 }
 
 void readSerialPort(){

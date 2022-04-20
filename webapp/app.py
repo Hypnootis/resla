@@ -2,8 +2,6 @@ from flask import Flask, render_template
 import serial
 import time
 
-print("Running")
-
 # with serial.Serial("/dev/ttyUSB0", 115200, timeout=1) as esp:
 #     time.sleep(0.1)
 #     if esp.isOpen():
@@ -49,22 +47,22 @@ def command(cmd=None):
     #     camera_command = cmd1
     #     response = "Moving {}".format(cmd1.capitalize())
 
-    with serial.Serial("/dev/ttyUSB0", 115200, timeout=1) as esp:
+    with serial.Serial("/dev/ttyUSB0", 921600, timeout=1) as esp:
         time.sleep(0.1)
         if esp.isOpen():
             print(f"{esp.port} connected!")
             response = "Moving {}".format(cmd.capitalize())
             try:
-                while True:
-                    servo_command = cmd
-                    if servo_command != "":
-                        esp.write(servo_command.encode())
-                        while esp.inWaiting() == 0:
-                            pass
-                        if esp.inWaiting() > 0:
-                            answer = esp.readline()
-                            print(answer)
-                            esp.flushInput()
+                #while True:
+                servo_command = cmd
+                if servo_command != "":
+                    esp.write(servo_command.encode())
+                    while esp.inWaiting() == 0:
+                        pass
+                    if esp.inWaiting() > 0:
+                        answer = esp.readline()
+                        print(answer)
+                        esp.flushInput()
             except KeyboardInterrupt:
                 print("Exiting...")
 
