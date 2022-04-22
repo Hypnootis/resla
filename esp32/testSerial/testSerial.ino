@@ -4,11 +4,17 @@ String nom = "ESP32";
 String msg;
 Servo steering;
 Servo motor;
+int brakeLight = 21;
+int forwardLight = 18;
+int headLights = 15;
 
 void setup() {
 	Serial.begin(921600);
 	steering.attach(4);
 	motor.attach(5);
+	pinMode(brakeLight, OUTPUT);
+	pinMode(forwardLight, OUTPUT);
+	// pinMode(headLights, OUTPUT);
 }
 
 void loop() {
@@ -29,19 +35,25 @@ void loop() {
 		}
 
 		if (msg == "forward"){
-			motor.write(90);
-			delay(50);
 			motor.write(95);
+			delay(50);
+			motor.write(100);
+			digitalWrite(forwardLight, HIGH);
 		}
 
 		if (msg == "backward"){
-		motor.write(90);
+		motor.write(95);
 		delay(50);
-		motor.write(85);
+		motor.write(89);
+		digitalWrite(brakeLight, HIGH);
 		}
 
 		if (msg == "stop"){
-		motor.write(90);
+		// motor.write(90);
+		// delay(150);
+		motor.write(95);
+		digitalWrite(brakeLight, LOW);
+		digitalWrite(forwardLight, LOW);
 		}
 
 	sendData();
