@@ -1,0 +1,48 @@
+* {
+	background-image: url("../resla.jpg");
+	background-color:pink;
+}
+
+.command {
+	color: black;
+	background-image: none;
+	background-color: pink;
+}
+
+.command-left{
+	float: left;
+	margin-top: 20%;
+	margin-left: 38%;
+}
+
+.command-right{
+	float: right;
+	margin-top: 20%;
+	margin-right: 49%;
+}
+
+.command-forward{
+	float: right;
+	margin-top: -4.4%;
+	margin-right: 53.3%;
+}
+
+.command-backward{
+	float: right;
+	margin-right: 52.75%;
+	margin-top: 1%;
+}
+
+.command-straight{
+	float: right;
+	margin-right: 53.2%;
+	margin-top: -3.9%;
+}
+
+.command-stop{
+	padding: 4% 4% 4% 4%;
+	font-size: 200%;
+	float: right;
+	margin-right: 49%;
+	margin-top: -20%;
+}

@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-import serial
+# import serial
 import time
 
 # with serial.Serial("/dev/ttyUSB0", 115200, timeout=1) as esp:
@@ -37,6 +37,7 @@ def execute():
     return render_template("main.html", commands=AVAILABLE_COMMANDS)
 
 
+
 @app.route('/<cmd>')
 def command(cmd=None):
     # if cmd1 == STRAIGHT:
@@ -65,30 +66,30 @@ def command(cmd=None):
                         esp.flushInput()
             except KeyboardInterrupt:
                 print("Exiting...")
-
     print(servo_command)
     return response, 200, {'Content-Type': 'text/plain'}
 
-# @app.route('/<cmd>')
-# def command(cmd=None):
-#     if cmd == STRAIGHT:
-#         camera_command = "X"
-#         response = "Resetting ..."
-#     else:
-#         camera_command = cmd[0].upper()
-#         camera_command = cmd
-#         response = "Moving {}".format(cmd.capitalize())
-#         if camera_command == STRAIGHT:
-#             reset_wheels()
-#             response = "Moving {}".format(cmd.capitalize())
-#         elif camera_command == LEFT:
-#             turn_left()
-#             response = "Moving {}".format(cmd.capitalize())
-#         elif camera_command == RIGHT:
-#             turn_right()
-#             response = "Moving {}".format(cmd.capitalize())
-#     return response, 200, {'Content-Type': 'text/plain'}
-
+"""
+@app.route('/<cmd>')
+def command(cmd=None):
+     if cmd == STRAIGHT:
+         camera_command = "X"
+         response = "Resetting ..."
+     else:
+         camera_command = cmd[0].upper()
+         camera_command = cmd
+         response = "Moving {}".format(cmd.capitalize())
+         if camera_command == STRAIGHT:
+             # reset_wheels()
+             response = "Moving {}".format(cmd.capitalize())
+         elif camera_command == LEFT:
+             # turn_left()
+             response = "Moving {}".format(cmd.capitalize())
+         elif camera_command == RIGHT:
+             # turn_right()
+             response = "Moving {}".format(cmd.capitalize())
+     return response, 200, {'Content-Type': 'text/plain'}
+"""
 
 if __name__ == '__main__':
     app.run(debug=True)
