@@ -66,6 +66,7 @@ def command(cmd=None):
                 print("Exiting...")
     print(servo_command)
     return response, 200, {'Content-Type': 'text/plain'}
+
 """
 @app.route('/<cmd>')
 def command(cmd=None):

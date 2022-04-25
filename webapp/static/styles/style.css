@@ -1,5 +1,4 @@
-* {
-}
+
 
 body {
 	background-color: pink;
@@ -8,10 +7,8 @@ body {
 	
 .resla-background {
 	position: fixed;
-	bottom: 1%;
-	left: 30%;
-	width: 35%;
-	height: 70%;
+	width: 97%;
+	height: 97%;
 	border: 1px solid black;
 	display: grid;
 	flex-direction: column;
@@ -20,8 +17,8 @@ body {
 	background-image: url("../resla.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
-	background-position-y: 67%;
-	border-radius: 25%;
+	background-position-y: 90%;
+	border-radius: 5%;
 }
 
 .buttons {
@@ -29,36 +26,56 @@ body {
 	row-gap: 10%;
 	column-gap: 10%;
 	background-color: rgb(171, 236, 254);
+	padding-left: 1%;
+	padding-right: 1%;
+	padding-bottom: 1%;
+	border-radius: 25%;
 }
 
 .command {
 	color: black;
+	font-size: larger;
 	background-image: none;
 	background-color: rgb(255, 0, 212);
 	border: 3px solid black;
+	border-radius: 10%;
+	text-shadow: 1px 1px 5px pink;
 }
 
 .command-left{
 	grid-column-start: 1;
-	grid-column-end: 1;
-	grid-row-start: 1;
-	grid-row-end: 2;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 3;
 }
 
 .command-right{
 	grid-column-start: 3;
 	grid-column-end: 3;
-	grid-row-start: 1;
+	grid-row-start: 2;
 	grid-row-end: 2;
 }
 
 .command-forward{
+	grid-column-start: 2;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 1;
+
 }
 
 .command-backward{
+	grid-column-start: 2;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 2;
 }
 
 .command-straight{
+	grid-column-start: 1;
+	grid-column-end: 1;
+	grid-row-start: 1;
+	grid-row-end: 1;
 }
 
 .command-stop{
