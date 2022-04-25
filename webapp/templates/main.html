@@ -7,12 +7,18 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
 </head>
 <body>
+    <div class="camera">
+        
+    </div>
+    <div class="resla-background">
+        <h1>RESLA</h1>
+        <div class="buttons">
     {% for label, command in commands.items() %}
         <button class="command command-{{ command }}" value="{{ command }}">
 		{{ label }}
         </button>
     {% endfor %}
-
+        </div>
     <script>
         addEventListener("DOMContentLoaded", function () {
           var commandButtons = document.querySelectorAll(".command");
@@ -32,5 +38,6 @@
           }
         }, true);
     </script>
+    </div>
 </body>
 </html>

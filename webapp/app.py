@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-# import serial
+import serial
 import time
 
 # with serial.Serial("/dev/ttyUSB0", 115200, timeout=1) as esp:
@@ -37,7 +37,6 @@ def execute():
     return render_template("main.html", commands=AVAILABLE_COMMANDS)
 
 
-
 @app.route('/<cmd>')
 def command(cmd=None):
     # if cmd1 == STRAIGHT:
@@ -47,7 +46,6 @@ def command(cmd=None):
     #     # camera_command = cmd[0].upper()
     #     camera_command = cmd1
     #     response = "Moving {}".format(cmd1.capitalize())
-
     with serial.Serial("/dev/ttyUSB0", 921600, timeout=1) as esp:
         time.sleep(0.1)
         if esp.isOpen():
@@ -68,7 +66,6 @@ def command(cmd=None):
                 print("Exiting...")
     print(servo_command)
     return response, 200, {'Content-Type': 'text/plain'}
-
 """
 @app.route('/<cmd>')
 def command(cmd=None):
