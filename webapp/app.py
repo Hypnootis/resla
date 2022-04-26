@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import serial
 import time
+import picamera
 
 # with serial.Serial("/dev/ttyUSB0", 115200, timeout=1) as esp:
 #     time.sleep(0.1)

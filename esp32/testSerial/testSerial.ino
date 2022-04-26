@@ -1,4 +1,4 @@
-#include <ESP32Servo.h>
+#include <Servo.h>
 
 String nom = "ESP32";
 String msg;
@@ -14,7 +14,7 @@ void setup() {
 	motor.attach(5);
 	pinMode(brakeLight, OUTPUT);
 	pinMode(forwardLight, OUTPUT);
-	// pinMode(headLights, OUTPUT);
+	pinMode(headLights, OUTPUT);
 }
 
 void loop() {
@@ -39,6 +39,7 @@ void loop() {
 			delay(50);
 			motor.write(100);
 			digitalWrite(forwardLight, HIGH);
+			digitalWrite(headLights, HIGH);
 		}
 
 		if (msg == "backward"){
@@ -54,6 +55,7 @@ void loop() {
 		motor.write(95);
 		digitalWrite(brakeLight, LOW);
 		digitalWrite(forwardLight, LOW);
+		digitalWrite(headLights, LOW);
 		}
 
 	sendData();
